@@ -12,3 +12,8 @@ C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskM
 C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\obj\Debug\netcoreapp2.2\TaskManagementPlatformBE.RazorTargetAssemblyInfo.cache
 C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\obj\Debug\netcoreapp2.2\TaskManagementPlatformBE.dll
 C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\obj\Debug\netcoreapp2.2\TaskManagementPlatformBE.pdb
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\bin\Debug\netcoreapp2.2\CoreDatabase.dll
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\bin\Debug\netcoreapp2.2\CoreModels.dll
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\bin\Debug\netcoreapp2.2\CoreDatabase.pdb
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\bin\Debug\netcoreapp2.2\CoreModels.pdb
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\obj\Debug\netcoreapp2.2\TaskManagementPlatformBE.csproj.CopyComplete

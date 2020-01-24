@@ -1,0 +1,14 @@
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\bin\Debug\netcoreapp2.2\CoreDatabase.deps.json
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\bin\Debug\netcoreapp2.2\CoreDatabase.dll
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\obj\Debug\netcoreapp2.2\CoreDatabase.csprojAssemblyReference.cache
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\obj\Debug\netcoreapp2.2\CoreDatabase.csproj.CoreCompileInputs.cache
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\obj\Debug\netcoreapp2.2\CoreDatabase.AssemblyInfoInputs.cache
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\obj\Debug\netcoreapp2.2\CoreDatabase.AssemblyInfo.cs
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\bin\Debug\netcoreapp2.2\CoreDatabase.runtimeconfig.json
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\bin\Debug\netcoreapp2.2\CoreDatabase.runtimeconfig.dev.json
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\bin\Debug\netcoreapp2.2\CoreDatabase.pdb
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\bin\Debug\netcoreapp2.2\CoreModels.dll
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\bin\Debug\netcoreapp2.2\CoreModels.pdb
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\obj\Debug\netcoreapp2.2\CoreDatabase.csproj.CopyComplete
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\obj\Debug\netcoreapp2.2\CoreDatabase.dll
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\CoreDatabase\obj\Debug\netcoreapp2.2\CoreDatabase.pdb
