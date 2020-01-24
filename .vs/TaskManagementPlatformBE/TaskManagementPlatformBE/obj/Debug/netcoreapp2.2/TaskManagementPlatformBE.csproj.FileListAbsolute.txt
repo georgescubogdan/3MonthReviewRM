@@ -1,0 +1,14 @@
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\bin\Debug\netcoreapp2.2\TaskManagementPlatformBE.deps.json
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\bin\Debug\netcoreapp2.2\TaskManagementPlatformBE.runtimeconfig.json
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\bin\Debug\netcoreapp2.2\TaskManagementPlatformBE.runtimeconfig.dev.json
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\bin\Debug\netcoreapp2.2\TaskManagementPlatformBE.dll
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\bin\Debug\netcoreapp2.2\TaskManagementPlatformBE.pdb
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\obj\Debug\netcoreapp2.2\TaskManagementPlatformBE.csprojAssemblyReference.cache
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\obj\Debug\netcoreapp2.2\TaskManagementPlatformBE.csproj.CoreCompileInputs.cache
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\obj\Debug\netcoreapp2.2\TaskManagementPlatformBE.RazorAssemblyInfo.cache
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\obj\Debug\netcoreapp2.2\TaskManagementPlatformBE.RazorAssemblyInfo.cs
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\obj\Debug\netcoreapp2.2\TaskManagementPlatformBE.AssemblyInfoInputs.cache
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\obj\Debug\netcoreapp2.2\TaskManagementPlatformBE.AssemblyInfo.cs
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\obj\Debug\netcoreapp2.2\TaskManagementPlatformBE.RazorTargetAssemblyInfo.cache
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\obj\Debug\netcoreapp2.2\TaskManagementPlatformBE.dll
+C:\Users\Razvan Mierla\Desktop\3MonthReviewRM\.vs\TaskManagementPlatformBE\TaskManagementPlatformBE\obj\Debug\netcoreapp2.2\TaskManagementPlatformBE.pdb
