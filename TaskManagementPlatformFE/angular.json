@@ -21,12 +21,13 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "board.html"
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["app/dashboard/dashboard/js/board.js","app/dashboard/dashboard/js/index.js","app/dashboard/dashboard/js/messages.js","app/dashboard/dashboard/js/storage.js"]
           },
           "configurations": {
             "production": {

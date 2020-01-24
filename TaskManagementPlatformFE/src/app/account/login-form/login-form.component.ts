@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterFormComponent } from '../register-form/register-form.component';
 
 @Component({
   selector: 'app-login-form',
@@ -23,12 +24,13 @@ export class LoginFormComponent implements OnInit {
 
   constructor(private auth: AuthService,
               private router: Router,
-              public toastrService: ToastrService) { }
+              public toastrService: ToastrService,
+              private modalService: NgbModal) { }
 
   ngOnInit() {
   }
 
-  onSubmit() {
+  loginUser() {
     // TODO: Use EventEmitter with form value
     if (!this.submited) {
       this.submited = true;
@@ -48,7 +50,8 @@ export class LoginFormComponent implements OnInit {
   }
 
   registerUser(){
-    
+    const modalRef = this.modalService.open(RegisterFormComponent);
+    modalRef.componentInstance.name = 'Register User';
   }
 
 }
