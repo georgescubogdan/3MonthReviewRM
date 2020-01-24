@@ -47,4 +47,8 @@ export class LoginFormComponent implements OnInit {
     }
   }
 
+  registerUser(){
+    
+  }
+
 }

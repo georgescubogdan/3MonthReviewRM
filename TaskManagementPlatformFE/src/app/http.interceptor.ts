@@ -7,11 +7,6 @@ export class AuthHttpInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, newRequest: HttpHandler): Observable<HttpEvent<any>> {
     const tokenInfo = localStorage.getItem('auth_key');
     if ((tokenInfo !== null && tokenInfo !== '') && (request.url.indexOf('Login') === -1 || request.url.indexOf('Register') === -1)) {
-      console.log(request.url);
-      console.error(tokenInfo);
-      console.warn(request.url.indexOf('Register'));
-      console.warn(request.url.indexOf('Login'));
-      
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${tokenInfo}`,
