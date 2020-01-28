@@ -7,13 +7,11 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AcountRoutingModule } from './account-routing.module';
 import { PasswordComponent } from './password/password.component';
-import { RegisterFormComponent } from './register-form/register-form.component';
 
 @NgModule({
   declarations: [
     LoginFormComponent,
-    PasswordComponent,
-    RegisterFormComponent
+    PasswordComponent
   ],
   entryComponents: [
     PasswordComponent
