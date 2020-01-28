@@ -25,7 +25,7 @@ namespace ContrAllStudioManagementBackend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TaskStateModel>>> GetTaskStateModels()
         {
-            return await _context.TaskStateModels.Include(s => s.Tasks).ToListAsync();
+            return await _context.TaskStateModels.Include(s => s.Tasks).OrderBy(t => t.OrderNr).ToListAsync();
         }
 
         // GET: api/TaskStates/5
@@ -76,6 +76,26 @@ namespace ContrAllStudioManagementBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<TaskStateModel>> PostTaskStateModel(TaskStateModel taskStateModel)
         {
+            var allStates = await _context.TaskStateModels.ToListAsync();
+            for(int i = 0;i <= allStates.Count() - 2;i++)
+            {
+                if(allStates[i].OrderNr == taskStateModel.OrderNr)
+                {
+                    allStates[i].OrderNr++;
+                }
+                if(allStates[i].OrderNr == allStates[i + 1].OrderNr)
+                {
+                    allStates[i + 1].OrderNr++;
+                }
+            }
+            //foreach(TaskStateModel t in allStates)
+            //{
+            //    if(t.OrderNr == taskStateModel.OrderNr)
+            //    {
+            //        t.OrderNr++;
+            //    }
+            //}
+
             _context.TaskStateModels.Add(taskStateModel);
             await _context.SaveChangesAsync();
 
