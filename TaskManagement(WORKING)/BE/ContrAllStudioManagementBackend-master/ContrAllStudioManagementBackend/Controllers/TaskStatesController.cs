@@ -25,7 +25,7 @@ namespace ContrAllStudioManagementBackend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TaskStateModel>>> GetTaskStateModels()
         {
-            return await _context.TaskStateModels.ToListAsync();
+            return await _context.TaskStateModels.Include(s => s.Tasks).ToListAsync();
         }
 
         // GET: api/TaskStates/5
