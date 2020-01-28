@@ -1,0 +1,34 @@
+<div class="modal-header">
+  <h4 class="modal-title">Adaugare stare</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  
+<form [formGroup]="addTaskStateForm" (ngSubmit)="onSubmitAddTaskState()">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      Nume:
+      <input (keydown.enter)="onSubmitAddTaskState()" type="text" class="form-control" formControlName="name" placeholder="Nume" [ngClass]="{ 'is-invalid': submitted && getAddTaskStateFormControls['name'].errors }">
+      <div *ngIf="submitted && getAddTaskStateFormControls['name'].errors" class="invalid-feedback">
+        <div *ngIf="getAddTaskStateFormControls['name'].errors.required">Numele starii este un câmp necesar</div>
+      </div>
+    </div>
+    <div class="form-group col-md-6">
+      Numar de ordine: 
+      <input (keydown.enter)="onSubmitAddTaskState()" type="number" class="form-control" formControlName="orderNr" placeholder="Numar-ordine" [ngClass]="{ 'is-invalid': submitted && getAddTaskStateFormControls['orderNr'].errors }">
+      <div *ngIf="submitted && getAddTaskStateFormControls['orderNr'].errors" class="invalid-feedback">
+        <div *ngIf="getAddTaskStateFormControls['orderNr'].errors.required">Numarul de ordine este un câmp necesar</div>
+      </div>
+    </div>
+  </div>
+
+ 
+</form>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn focus-btn col-6" (click)="onSubmitAddTaskState()">Salvare</button>
+  <button type="button" class="btn sec-focus-btn col-6" (click)="activeModal.close('Close click')">Anulare</button>
+</div>
