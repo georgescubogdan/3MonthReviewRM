@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  contrallstudiomanagementbackend:
+    image: ${DOCKER_REGISTRY-}contrallstudiomanagementbackend
+    build:
+      context: .
+      dockerfile: ContrAllStudioManagementBackend/Dockerfile
