@@ -40,6 +40,11 @@ export class AuthService {
         .toPromise();
   }
 
+  public async register(body: any) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post(environment.identityApiUrl + '/Register', body, { headers , responseType: 'text' }).toPromise();
+  }
+
   // private async getClients(): Promise<Client[]> {
   //   return await this.http.get<Client[]>(environment.clientApiUrl, {responseType: 'json'}).toPromise();
   // }

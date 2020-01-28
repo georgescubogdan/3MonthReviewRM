@@ -362,7 +362,6 @@ namespace CoreDatabase.Migrations
                 {
                     TaskID = table.Column<int>(nullable: false)
                         .Annotation("MySQL:AutoIncrement", true),
-                    UserId = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     TaskStateID = table.Column<int>(nullable: false)
                 },
@@ -374,12 +373,6 @@ namespace CoreDatabase.Migrations
                         column: x => x.TaskStateID,
                         principalTable: "TaskStateModels",
                         principalColumn: "TaskStateID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_TaskModels_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -423,6 +416,30 @@ namespace CoreDatabase.Migrations
                         column: x => x.Profile_ProfileModelId,
                         principalTable: "ProfileModels",
                         principalColumn: "ProfileModelId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserTaskModels",
+                columns: table => new
+                {
+                    UserID = table.Column<int>(nullable: false),
+                    TaskId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserTaskModels", x => new { x.UserID, x.TaskId });
+                    table.ForeignKey(
+                        name: "FK_UserTaskModels_TaskModels_TaskId",
+                        column: x => x.TaskId,
+                        principalTable: "TaskModels",
+                        principalColumn: "TaskID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserTaskModels_AspNetUsers_UserID",
+                        column: x => x.UserID,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -499,9 +516,9 @@ namespace CoreDatabase.Migrations
                 column: "TaskStateID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TaskModels_UserId",
-                table: "TaskModels",
-                column: "UserId");
+                name: "IX_UserTaskModels_TaskId",
+                table: "UserTaskModels",
+                column: "TaskId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_VacationDays_UserId",
@@ -542,13 +559,13 @@ namespace CoreDatabase.Migrations
                 name: "SRModels");
 
             migrationBuilder.DropTable(
-                name: "TaskModels");
-
-            migrationBuilder.DropTable(
                 name: "UpdatesModels");
 
             migrationBuilder.DropTable(
                 name: "UserModels");
+
+            migrationBuilder.DropTable(
+                name: "UserTaskModels");
 
             migrationBuilder.DropTable(
                 name: "VacationDays");
@@ -563,13 +580,16 @@ namespace CoreDatabase.Migrations
                 name: "ProfileModels");
 
             migrationBuilder.DropTable(
-                name: "TaskStateModels");
+                name: "TaskModels");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "SubDomainModels");
+
+            migrationBuilder.DropTable(
+                name: "TaskStateModels");
         }
     }
 }
