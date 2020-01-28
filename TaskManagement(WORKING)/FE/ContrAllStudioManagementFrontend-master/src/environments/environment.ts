@@ -43,7 +43,9 @@ export const environment = {
   clockingApiUrl: 'http://192.168.1.58:51488/api/Clocking',
   dateApiUrl: 'http://192.168.1.58:51488/api/Dates',
   roleModelsApiUrl: 'http://192.168.1.58:51488/api/RoleModels',
-  vacationDaysApiUrl: 'http://192.168.1.58:51488/api/VacationDays'
+  vacationDaysApiUrl: 'http://192.168.1.58:51488/api/VacationDays',
+  TasksApiUrl: 'http://192.168.1.58:51488/api/Tasks',
+  TaskStatesApiUrl: 'http://192.168.1.58:51488/api/TaskStates'
 
 };
 

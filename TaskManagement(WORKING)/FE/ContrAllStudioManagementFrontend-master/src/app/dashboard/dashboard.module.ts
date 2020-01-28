@@ -53,6 +53,10 @@ import { AddVacationDaysComponent } from './vacation-days-view/add-vacation-day/
 import { EditVacationDayComponent } from './vacation-days-view/edit-vacation-day/edit-vacation-day.component';
 import { TaskManagementComponent } from './task-management/task-management.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { AddTaskStateComponent } from './task-management/add-task-state/add-task-state.component';
+import { EditTaskStateComponent } from './task-management/edit-task-state/edit-task-state.component';
+import { AddTaskComponent } from './task-management/add-task/add-task.component';
+import { EditTaskComponent } from './task-management/edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +98,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     AddVacationDaysComponent,
     EditVacationDayComponent,
     TaskManagementComponent,
+    AddTaskStateComponent,
+    EditTaskStateComponent,
+    AddTaskComponent,
+    EditTaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -133,6 +141,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     EditUserRoleComponent,
     AddVacationDaysComponent,
     EditVacationDayComponent,
+    AddTaskStateComponent,
+    EditTaskStateComponent,
+    AddTaskComponent,
+    EditTaskComponent,
   ],
   providers: [
     DecimalPipe,

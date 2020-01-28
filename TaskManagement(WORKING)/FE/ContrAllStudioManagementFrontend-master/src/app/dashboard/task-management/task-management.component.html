@@ -1,80 +1,46 @@
 <div style="padding: 30px;" class="d-flex flex-wrap" >
   <div style="width: 100%; overflow: scroll; max-height: auto;" class="d-flex flex-wrap" >
-    <div class="table-container" style="margin-top: 30px; max-height: 75vh;">
-    <div cdkDropListGroup>
-      <div class="example-container">
-        <h2>Open</h2>
-    
-        <div
-          cdkDropList
-          [cdkDropListData]="open"
-          class="example-list"
-          (cdkDropListDropped)="drop($event)">
-          <div class="example-box" *ngFor="let item of open" cdkDrag>{{item}}</div>
-        </div>
-      </div>
-    
-      <div class="example-container">
-        <h2>In Progress</h2>
-    
-        <div
-          cdkDropList
-          [cdkDropListData]="inProgress"
-          class="example-list"
-          (cdkDropListDropped)="drop($event)">
-          <div class="example-box" *ngFor="let item of inProgress" cdkDrag>{{item}}</div>
-        </div>
-      </div>
-
-      <div class="example-container">
-        <h2>Done</h2>
-    
-        <div
-          cdkDropList
-          [cdkDropListData]="done"
-          class="example-list"
-          (cdkDropListDropped)="drop($event)">
-          <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
-        </div>
-      </div>
-
-      <div class="example-container">
-        <h2>Blocked</h2>
-    
-        <div
-          cdkDropList
-          [cdkDropListData]="blocked"
-          class="example-list"
-          (cdkDropListDropped)="drop($event)">
-          <div class="example-box" *ngFor="let item of blocked" cdkDrag>{{item}}</div>
-        </div>
-      </div>
-
-      <div class="example-container">
-        <h2>QA Ready</h2>
-    
-        <div
-          cdkDropList
-          [cdkDropListData]="qaReady"
-          class="example-list"
-          (cdkDropListDropped)="drop($event)">
-          <div class="example-box" *ngFor="let item of qaReady" cdkDrag>{{item}}</div>
-        </div>
-      </div>
-
-      <div class="example-container">
-        <h2>Closed</h2>
-    
-        <div
-          cdkDropList
-          [cdkDropListData]="closed"
-          class="example-list"
-          (cdkDropListDropped)="drop($event)">
-          <div class="example-box" *ngFor="let item of closed" cdkDrag>{{item}}</div>
-        </div>
-      </div>
-
+    <div style="width: 100%;">
+      <button class="btn focus-btn" style="float: right; margin-right: 5px;" (click)="addTaskState()">ADAUGARE STARE</button>
     </div>
-  </div>
+    <div class="table-container" style="margin-top: 30px; max-height: 75vh;">
+      
+      <div cdkDropListGroup>
+        <div class="example-container" *ngFor="let taskState of taskStates">
+            <div>
+              <div style="font-size: larger; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width: 50%;">{{taskState.name}}</div>
+              <div style="max-width: 50%;">
+                <button type="button" class="btn btn-default btn-sm" (click)="addTask(taskState.taskStateID)">
+                  <i class="fas fa-plus"></i>
+                </button>
+                <button type="button" class="btn btn-default btn-sm" (click)="editTaskState(taskState)">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button type="button" class="btn btn-default btn-sm" (click)="deleteTaskState(taskState.taskStateID)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
+          </div>
+            <div
+              cdkDropList
+              [cdkDropListData]="taskState.tasks"
+              class="example-list"
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let task of taskState.tasks" cdkDrag (cdkDragEnded)="dragEnd($event, task.taskID, taskState.taskStateID, task.taskStateID)" >
+                <div style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width: 50%;">{{task.taskName}}</div>
+                <div style="max-width: 50%;">
+                  <button type="button" class="btn btn-default btn-sm" (click)="editTask(task)">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button type="button" class="btn btn-default btn-sm" (click)="deleteTask(task.taskID)">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+  
+    </div>
   </div>
 </div>
