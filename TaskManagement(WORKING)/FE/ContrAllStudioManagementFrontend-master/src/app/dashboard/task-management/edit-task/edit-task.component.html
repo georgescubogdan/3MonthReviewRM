@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h4 class="modal-title">Editare task</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  
+<form [formGroup]="editTaskForm" (ngSubmit)="onSubmitEditTask()">
+    <div class="form-group">
+      Nume:
+      <input (keydown.enter)="onSubmitEditTask()" type="text" class="form-control" formControlName="taskName" placeholder="Nume" [ngClass]="{ 'is-invalid': submitted && getEditTaskFormControls['taskName'].errors }">
+      <div *ngIf="submitted && getEditTaskFormControls['taskName'].errors" class="invalid-feedback">
+        <div *ngIf="getEditTaskFormControls['taskName'].errors.required">Numele task-ului este un câmp necesar</div>
+      </div>
+    </div>
+    <div class="form-group">
+      Descriere: <textarea class="form-control" formControlName="description" placeholder="Descriere" [ngClass]="{ 'is-invalid': submitted && getEditTaskFormControls['description'].errors }"></textarea>
+      <div *ngIf="submitted && getEditTaskFormControls['description'].errors" class="invalid-feedback">
+        <div *ngIf="getEditTaskFormControls['description'].errors.required">Descrierea este un câmp necesar</div>
+      </div>
+    </div>
+
+ 
+</form>
+
+<div class="modal-footer">
+  <button type="button" ngbAutofocus class="btn focus-btn col-6" (click)="onSubmitEditTask()" ngbAutofocus>Salvare</button>
+  <button type="button" class="btn sec-focus-btn col-6" (click)="activeModal.close('Close click')">Anulare</button>
+</div>

@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h4 class="modal-title">Adaugare task</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  
+<form [formGroup]="addTaskForm" (ngSubmit)="onSubmitAddTask()">
+    <div class="form-group">
+      Nume:
+      <input (keydown.enter)="onSubmitAddTask()" type="text" class="form-control" formControlName="taskName" placeholder="Nume" [ngClass]="{ 'is-invalid': submitted && getAddTaskFormControls['taskName'].errors }">
+      <div *ngIf="submitted && getAddTaskFormControls['taskName'].errors" class="invalid-feedback">
+        <div *ngIf="getAddTaskFormControls['taskName'].errors.required">Numele task-ului este un câmp necesar</div>
+      </div>
+    </div>
+    <div class="form-group">
+      Descriere: 
+      <textarea class="form-control" formControlName="description" placeholder="Descriere"  [ngClass]="{ 'is-invalid': submitted && getAddTaskFormControls['description'].errors }"></textarea>
+      <div *ngIf="submitted && getAddTaskFormControls['description'].errors" class="invalid-feedback">
+        <div *ngIf="getAddTaskFormControls['description'].errors.required">Descrierea task-ului este un câmp necesar</div>
+      </div>
+    </div>
+
+ 
+</form>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn focus-btn col-6" (click)="onSubmitAddTask()">Salvare</button>
+  <button type="button" class="btn sec-focus-btn col-6" (click)="activeModal.close('Close click')">Anulare</button>
+</div>
