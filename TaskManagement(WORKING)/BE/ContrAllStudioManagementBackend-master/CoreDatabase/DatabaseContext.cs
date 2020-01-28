@@ -74,18 +74,6 @@ namespace CoreDatabase
                 .HasMany(sdm => sdm.Profiles)
                 .WithOne(p => p.SubDomain);
 
-            modelBuilder.Entity<UserTaskModel>().HasKey(ut => new { ut.UserID, ut.TaskId });
-
-            modelBuilder.Entity<UserTaskModel>()
-                .HasOne(user => user.UserModel)
-                .WithMany(u => u.UserTask)
-                .HasForeignKey(ut => ut.UserID);
-
-            modelBuilder.Entity<UserTaskModel>()
-               .HasOne(user => user.TaskModel)
-               .WithMany(u => u.UserTask)
-               .HasForeignKey(ut => ut.TaskId);
-
             //modelBuilder.Entity<UserModel>().Ignore(e => e.FullName);
 
             modelBuilder.Entity<UserRoleModel>(userRole =>
@@ -135,7 +123,6 @@ namespace CoreDatabase
         public DbSet<VacationDayModel> VacationDays { get; set; }
         public DbSet<TaskModel> TaskModels { get; set; }
         public DbSet<TaskStateModel> TaskStateModels { get; set; }
-        public DbSet<UserTaskModel> UserTaskModels { get; set; }
     }
 }
 

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreDatabase.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200128113507_InitialMigration")]
+    [Migration("20200127170617_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -256,9 +256,13 @@ namespace CoreDatabase.Migrations
 
                     b.Property<int>("TaskStateID");
 
+                    b.Property<int>("UserId");
+
                     b.HasKey("TaskID");
 
                     b.HasIndex("TaskStateID");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("TaskModels");
                 });
@@ -356,19 +360,6 @@ namespace CoreDatabase.Migrations
                     b.HasIndex("UserModelId");
 
                     b.ToTable("AspNetUserRoles");
-                });
-
-            modelBuilder.Entity("CoreModels.Models.UserTaskModel", b =>
-                {
-                    b.Property<int>("UserID");
-
-                    b.Property<int>("TaskId");
-
-                    b.HasKey("UserID", "TaskId");
-
-                    b.HasIndex("TaskId");
-
-                    b.ToTable("UserTaskModels");
                 });
 
             modelBuilder.Entity("CoreModels.Models.VacationDayModel", b =>
@@ -496,8 +487,13 @@ namespace CoreDatabase.Migrations
             modelBuilder.Entity("CoreModels.Models.TaskModel", b =>
                 {
                     b.HasOne("CoreModels.Models.TaskStateModel", "TaskState")
-                        .WithMany("Tasks")
+                        .WithMany()
                         .HasForeignKey("TaskStateID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("CoreModels.Models.UserModel", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -520,19 +516,6 @@ namespace CoreDatabase.Migrations
                     b.HasOne("CoreModels.Models.UserModel", "UserModel")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserModelId");
-                });
-
-            modelBuilder.Entity("CoreModels.Models.UserTaskModel", b =>
-                {
-                    b.HasOne("CoreModels.Models.TaskModel", "TaskModel")
-                        .WithMany("UserTask")
-                        .HasForeignKey("TaskId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("CoreModels.Models.UserModel", "UserModel")
-                        .WithMany("UserTask")
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("CoreModels.Models.VacationDayModel", b =>

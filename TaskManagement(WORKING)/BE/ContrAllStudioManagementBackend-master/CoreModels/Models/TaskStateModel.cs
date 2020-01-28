@@ -11,6 +11,5 @@ namespace CoreModels.Models
         public int TaskStateID { get; set; }
         public string Name { get; set; }
         public int OrderNr { get; set; }
-        public virtual List<TaskModel> Tasks { get; set; }
     }
 }

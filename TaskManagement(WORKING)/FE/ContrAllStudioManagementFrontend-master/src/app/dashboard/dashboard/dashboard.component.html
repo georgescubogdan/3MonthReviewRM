@@ -4,7 +4,7 @@
     <div class="d-flex flex-wrap" style="width: 90%;">
      
       <div style="width: 50%; margin-top: 20px; margin-left: 10%" [ngClass]="{'close-logo': expand==false, 'expand-logo': expand==true}">
-        <img  style="height: 30px;">
+        <img src="../../../assets/images/Asset 21.svg" style="height: 30px;">
       </div>
       <div class="colapse-btn" [ngClass]="{'close-btn-contain': expand==false, 'expand-btn-contain': expand==true}">
         <a (click)="Expand()">
@@ -12,7 +12,7 @@
         </a>
       </div>
       <div style="width: 100%; margin-top: 30px;  margin-left: 5%; margin-bottom: 30px" [ngClass]="{'close-logo': expand==true, 'expand-logo': expand==false}">
-        <img  style="height: 20px; margin: auto; display: block;">
+        <img src="../../../assets/images/Asset 22.svg" style="height: 20px; margin: auto; display: block;">
       </div>
       
     </div>
@@ -23,7 +23,7 @@
           <h4 [ngClass]="{'close-title': expand==false, 'expand-title': expand==true}" style="margin-top: 60px; font-size: 16px; margin-left: 10%;"></h4>
       </div>
       
-      <!-- <a *ngIf="authorization.isConsultant || authorization.isAdmin" [routerLink]="['Formula']" class="d-flex tab" (click)="tabSelect(5)" [ngClass]="{'tab-selected': tabSelected==5}">
+      <a *ngIf="authorization.isConsultant || authorization.isAdmin" [routerLink]="['Formula']" class="d-flex tab" (click)="tabSelect(5)" [ngClass]="{'tab-selected': tabSelected==5}">
         <div [ngClass]="{'close-icon': expand==false, 'expand-icon': expand==true}">
             <img src="../../../assets/images/Asset 19.svg" class="tab-icon">
         </div>
@@ -73,7 +73,7 @@
                 <img src="../../../assets/images/calendar.svg" class="tab-icon">
             </div>
             <h6 style="margin-left: 10px;" [ngClass]="{'close-text': expand==false, 'expand-text': expand==true}">Zile concediu</h6>
-          </a> -->
+          </a>
           <a [routerLink]="['task-management']" class="d-flex tab" (click)="tabSelect(12)" [ngClass]="{'tab-selected': tabSelected==12}">
             <div [ngClass]="{'close-icon': expand==false, 'expand-icon': expand==true}">
                 <img src="../../../assets/images/calendar.svg" class="tab-icon">
