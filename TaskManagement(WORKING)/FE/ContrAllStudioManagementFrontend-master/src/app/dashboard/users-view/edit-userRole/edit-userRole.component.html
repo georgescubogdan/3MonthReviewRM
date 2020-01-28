@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <h4 class="modal-title">Editare rol user</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" *ngIf="editUserRoleForm !== null">
+  <form [formGroup]="editUserRoleForm" (ngSubmit)="onEditSubmitUserRoles()">
+    
+    <!-- <div class="form-group">
+      Username:
+      <input type="text" class="form-control" formControlName="userName" [(value)]="user.userName">
+    </div> -->
+      <div *ngFor="let role of allRoles; let i = index">
+        <div class="custom-control custom-switch" style="display: inline; margin-left: calc(20px * i)" >
+          <input type="checkbox" class="custom-control-input" id="customSwitch{{i}}" [checked]="checkRole(role)" formControlName="{{role}}" >
+          <label class="custom-control-label" for="customSwitch{{i}}">{{ role | uppercase }}</label>
+        </div>
+      </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" ngbAutofocus class="btn focus-btn col-6" (click)="onEditSubmitUserRoles()" ngbAutofocus>Salvare</button>
+  <button type="button" class="btn sec-focus-btn col-6" (click)="activeModal.close('Close click')">Anulare</button>
+</div>

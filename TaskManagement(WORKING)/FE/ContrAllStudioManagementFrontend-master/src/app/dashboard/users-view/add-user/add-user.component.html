@@ -1,0 +1,64 @@
+<div class="modal-header">
+  <h4 class="modal-title">Adaugare user</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmitUser()">
+    <div class="form-group">
+      Email:
+      <input (keydown.enter)="onSubmitUser()" type="text" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && getRegisterFormControls['email'].errors }" />
+      <div *ngIf="submitted && getRegisterFormControls['email'].errors" class="invalid-feedback">
+        <div *ngIf="getRegisterFormControls['email'].errors.required">Email este un câmp necesar</div>
+        <div *ngIf="getRegisterFormControls['email'].errors.email">Adresa de email introdusă nu este validă</div>
+      </div>
+    </div>
+    <div class="custom-control custom-switch" style="display: inline; margin-left: 60px">
+      <input type="checkbox" class="custom-control-input" id="customSwitch1" (change)="generatePasswordEventHandler($event)">
+      <label class="custom-control-label" for="customSwitch1">Generare automata de parola</label>
+    </div>
+    <div class="form-group">
+      Parola:
+      <input (keydown.enter)="onSubmitUser()" type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && getRegisterFormControls['password'].errors }" />
+      <div *ngIf="submitted && getRegisterFormControls['password'].errors" class="invalid-feedback">
+        <div *ngIf="getRegisterFormControls['password'].errors.required">Parola este un câmp necesar</div>
+        <div *ngIf="getRegisterFormControls['password'].errors.minlength">Parola trebuie sa aibă cel puțin 6 caractere</div>
+      </div>
+    </div>
+    <div class="form-group">
+      Confirmare parola:
+      <input (keydown.enter)="onSubmitUser()" type="password" class="form-control" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && getRegisterFormControls['confirmPassword'].errors }" />
+      <div *ngIf="submitted && getRegisterFormControls['confirmPassword'].errors" class="invalid-feedback">
+        <div *ngIf="getRegisterFormControls['confirmPassword'].errors.required">Confirmare parolă este un câmp necesar</div>
+        <div *ngIf="getRegisterFormControls['confirmPassword'].errors.mustMatch">Parolele nu trebuie să difere</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        Nume: <input (keydown.enter)="onSubmitUser()" type="text" class="form-control" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && getRegisterFormControls['lastName'].errors }" />
+        <div *ngIf="submitted && getRegisterFormControls['lastName'].errors" class="invalid-feedback">
+          <div *ngIf="getRegisterFormControls['lastName'].errors.required">Nume este un câmp necesar</div>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        Prenume: <input (keydown.enter)="onSubmitUser()" type="text" class="form-control" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && getRegisterFormControls['firstName'].errors }" />
+        <div *ngIf="submitted && getRegisterFormControls['firstName'].errors" class="invalid-feedback">
+          <div *ngIf="getRegisterFormControls['firstName'].errors.required">Prenume este un câmp necesar</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      Telefon: <input (keydown.enter)="onSubmitUser()" type="text" class="form-control" formControlName="phoneNumber" [ngClass]="{ 'is-invalid': submitted && getRegisterFormControls['phoneNumber'].errors }" />
+      <div *ngIf="submitted && getRegisterFormControls['phoneNumber'].errors" class="invalid-feedback">
+        <div *ngIf="getRegisterFormControls['phoneNumber'].errors.required">Telefon este un câmp necesar</div>
+      </div>
+    </div>
+  </form>
+  
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn focus-btn col-6" (click)="onSubmitUser()">Salvare</button>
+  <button type="button" class="btn sec-focus-btn col-6" (click)="activeModal.close('Close click')">Anulare</button>
+</div>

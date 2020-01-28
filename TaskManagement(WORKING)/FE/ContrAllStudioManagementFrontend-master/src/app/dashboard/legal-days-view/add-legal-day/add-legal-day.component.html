@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h4 class="modal-title">Adaugare Zi libera</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<div class="modal-body">
+  <form [formGroup]="addDayForm" (ngSubmit)="onSubmitDateFirma()">
+
+    <div class="form-group">
+      Denumire: <input type="text" class="form-control" formControlName="denumire" placeholder="Denumire zi legala" ngbAutofocus>
+    </div>
+    <div class="form-row">
+    <div class="form-group">
+      Luna: <input mdbValidate type="text" class="form-control" formControlName="luna" placeholder="luna" style="width: 90%">
+    </div>
+
+      <div class="form-group">
+        Zi: <input type="text" class="form-control" formControlName="zi" placeholder="zi">
+      </div>
+      </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" [disabled]='!activeButton || addDayForm.invalid' class="btn focus-btn col-6" (click)="onSubmitDateFirma()">Salvare</button>
+  <button type="button" class="btn sec-focus-btn col-6" (click)="activeModal.close('Close click')">Anulare</button>
+</div>

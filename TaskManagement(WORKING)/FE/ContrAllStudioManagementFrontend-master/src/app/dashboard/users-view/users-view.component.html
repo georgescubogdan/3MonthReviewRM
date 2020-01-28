@@ -1,0 +1,67 @@
+<div style="padding: 30px;">
+  <div class="d-flex flex-wrap">
+    <div style="width: 30%;">
+      <input class="form-control search-box" type="text" name="searchTerm" [(ngModel)]="service.searchTerm" placeholder="Cautare" style="width: 100%; max-width: 300px;"/>
+    </div>
+    <div style="width: 40%; padding-top: 6px;">
+      <div style="display: block; margin: auto; width: 30px;">
+        <span style="width: 50%;" *ngIf="service.loading$ | async">
+          <div class="lds-circle"><div></div></div>
+        </span>
+      </div>
+    </div>
+    <div style="width: 30%;">
+      <button class="btn focus-btn" style="float: right; margin-right: 5px;" (click)="open()">ADAUGA USER</button>
+    </div>
+  </div>
+  
+  <div class="table-container" style="margin-top: 30px; max-height: 75vh;">
+    <div class="d-flex justify-content-between p-2">
+      <ngb-pagination
+      [collectionSize]="total" [(page)]="service.page" [pageSize]="service.pageSize">
+    </ngb-pagination>
+    
+    <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+      <option [ngValue]="10">10 useri pe pagina</option>
+      <option [ngValue]="15">15 useri pe pagina</option>
+      <option [ngValue]="20">20 useri pe pagina</option>
+      <option [ngValue]="total">Afiseaza tot</option>
+    </select>
+  </div>
+  
+  <div style="overflow: auto;">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 10%; margin-right:10px">#</th>
+          <th scope="col" style="width: 30%;" sortable="lastName" (sort)="onSort($event)">Nume</th>
+          <th scope="col" style="width: 50%;" sortable="email" (sort)="onSort($event)">Email</th>
+          <th scope="col" style="width: 30%;" sortable="phoneNumber" (sort)="onSort($event)">Numar telefon</th>
+          <th scope="col" style="width: 100px;"></th>
+        </tr>
+      </thead>
+      
+      <tbody style="max-height: 56vh;">
+        <tr *ngFor="let user of users; let i = index">
+          <th scope="row" style="width: 10%;">{{ i + 1 + service.pageSize * (service.page -1)}}</th>
+          <td style="width: 30%;">{{ user.lastName }} {{ user.firstName}}</td>
+          <td style="width: 50%;">{{ user.email }}</td>
+          <td style="width: 20%;">{{ user.phoneNumber }}</td>
+          <td style="width: 150px;">
+            <button type="button" class="btn btn-default btn-sm" (click)="openEditUser(user)">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button type="button" class="btn btn-default btn-sm" (click)="openEditUserRole(user)">
+              <i class="fas fa-user-tag"></i>
+            </button>
+            <button type="button" class="btn btn-default btn-sm" (click)="deleteUser(user.id)">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>

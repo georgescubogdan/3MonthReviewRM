@@ -1,0 +1,132 @@
+<div style="padding: 30px 30px 0px 30px" class="d-flex flex-wrap">
+    <div style="width: 45%">
+      <div class="d-flex flex-wrap" style="margin-bottom: 20px;">
+        <div style="width: 30%;">
+          <input class="form-control search-box" type="text" name="searchTermSpor" (focus)="onFocusSpor()" [(ngModel)]="srService.searchTermSpors" placeholder="Cautare spor" style="width: 100%; max-width: 300px;"/>
+        </div>
+        <div style="width: 40%; padding-top: 6px;">
+          <div style="display: block; margin: auto; width: 30px;">
+            <span *ngIf="srService.loading$ | async">
+                <span *ngIf="sporFocus||onStart">
+              <div class="lds-circle"><div></div></div>
+                </span>
+            </span>
+          </div>
+        </div>
+         <div style="width: 30%;">
+          <button class="btn focus-btn" style="float: right;" (click)="openSporAdd()">ADAUGA SPOR</button>
+        </div> 
+      </div>
+      <div class="table-container" style="overflow: scroll">
+        <div class="d-flex flex-wrap">
+          <div style="width: 50%;">
+            <ngb-pagination [collectionSize]="totalSpors" [(page)]="srService.pageSpor" [pageSize]="srService.pageSizeSpors" (click)="onFocusSpor()"></ngb-pagination>
+          </div>
+          <div style="width: 50%;">
+            <select class="custom-select" style="width: auto; float: right;" name="pageSizeSpors" [(ngModel)]="srService.pageSizeSpors" (focus)="onFocusSpor()">
+              <option [ngValue]="10">10 sporuri pe pagina</option>
+              <option [ngValue]="15">15 sporuri pe pagina</option>
+              <option [ngValue]="20">20 sporuri pe pagina</option>
+              <option [ngValue]="totalSpors">Afiseaza tot</option>
+              
+            </select>
+          </div>
+        </div>
+    
+        <div style="max-height: auto; max-width: auto">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 40px;">#</th>
+                <th scope="col" style="width: 100px;" sortable="name" (sort)="onSort($event)" table="spors">Nume</th>
+                <th scope="col" style="width: 120px; max-width: auto;" sortable="description" (sort)="onSort($event)" (sort)="onSort($event)"table="spors" >Descriere</th>
+                <th scope="col" style="width: 120px; max-width: auto;" sortable="formula" (sort)="onSort($event)" table="spors">Formula</th>
+                <th scope="col" style="width: 50px;" sortable="priority" (sort)="onSort($event)" table="spors">Prioritate</th>        
+                <th scope="col" style="width: 90px;"></th> 
+              </tr>
+            </thead>
+             <tbody style="max-height: 65vh;">
+              <tr *ngFor="let spor of spors; index as i">
+                <th scope="row" style="width: 40px;">{{ i + 1 + srService.pageSizeSpors * (srService.pageSpor -1)}}</th>
+                <td style="width: 100%; max-width: auto;" ngbTooltip="{{ spor.name }}">{{ spor.name.toUpperCase() }}</td>
+                <td style="width: 120%; max-width: auto;" ngbTooltip="{{ spor.description }}">{{ spor.description}}</td>
+                <td style="width: 120%; max-width: auto;" ngbTooltip="{{ spor.formula }}">{{ spor.formula.toUpperCase() }}</td>
+                <td style="width: 50%;" ngbTooltip="{{ spor.priority }}">{{ spor.priority }}</td>
+                <td style="width: 90%;">
+                    <button type="button" class="btn btn-default btn-sm" (click)="putSpor(spor)">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button type="button" class="btn btn-default btn-sm" (click)="deleteSpor(spor)">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+               
+              </tr> 
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  
+    <div style="max-width: 45%; margin-left: 2%;">
+      <div class="d-flex flex-wrap" style="margin-bottom: 20px;">
+        <div style="width: 50%;">
+          <input class="form-control search-box" type="text" name="searchTermRetainer" (focus)="onFocusRetainer()"  [(ngModel)]="srService.searchTermRetainers" placeholder="Cautare rețineri" style="width: 90%;"/>
+        </div>
+        <div style="width: 20%; padding-top: 6px;">
+          <span *ngIf="srService.loading$ | async">
+              <span *ngIf="!sporFocus||onStart">
+                  <div class="lds-circle"><div></div></div>
+                    </span>
+          </span>
+        </div> 
+         <div style="width: 30%;">
+          <button class="btn focus-btn" style="float: right; margin-right: 5px;" (click)="openRetrainerAdd()">ADAUGA RETINERE</button>
+        </div> 
+      </div>
+      
+      <div class="table-container" style="overflow: scroll">
+        <div class="d-flex flex-wrap">
+          <div style="width: 50%;">
+            <ngb-pagination [collectionSize]="totalRetainers" [(page)]="srService.pageRetainer" [pageSize]="srService.pageSizeRetainers" (click)="onFocusRetainer()"></ngb-pagination>
+          </div> 
+           <div style="width: 50%;">
+            <select class="custom-select" style="width: auto; float: right;" name="pageSizeRetainers" [(ngModel)]="srService.pageSizeRetainers" (focus)="onFocusRetainer()">
+              <option [ngValue]="10" class="opt">10 retineri pe pagina</option>
+              <option [ngValue]="15">15 retineri pe pagina</option>
+              <option [ngValue]="20">20 retineri pe pagina</option>
+              <option [ngValue]="totalRetainers">Afiseaza tot</option>
+            </select>
+          </div> 
+        </div>
+        <div style="max-height: auto ">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th scope="col" style="width: 50px;">#</th>
+                <th scope="col" style="width: 100px;" sortable="name" (sort)="onSort($event)" table="retainers">Nume</th>
+                <th scope="col" sortable="description" style="width: 120px; max-width: auto;" (sort)="onSort($event)" table="retainers">Descriere</th>
+                <th scope="col" sortable="formula" style="width: 120px; max-width: auto;" (sort)="onSort($event)" table="retainers">Formula</th>
+                <th scope="col" style="width: 50px;" sortable="priority" (sort)="onSort($event)" table="retainers">Prioritate</th>      
+                <th scope="col" style="width: 90px;"></th>  
+              </thead>
+          <tbody style= "max-height: 65vh;">
+            <tr *ngFor="let retainer of retainers; index as i">
+                <th  style="width: 50px;" scope="row">{{ i + 1 + srService.pageSizeRetainers * (srService.pageRetainer -1)}}</th>
+                <td  style="width: 100%;" ngbTooltip="{{ retainer.name }}">{{ retainer.name.toUpperCase() }}</td>
+                <td style="width: 120%; max-width: auto;" ngbTooltip="{{ retainer.description }}">{{ retainer.description}}</td>
+                <td style="width: 120%; max-width: auto;" ngbTooltip="{{ retainer.formula }}">{{ retainer.formula.toUpperCase() }}</td>
+                <td  style="width: 50px;" ngbTooltip="{{ retainer.priority }}">{{ retainer.priority }}</td>
+                <td style="width: 90px;">
+                    <button type="button" class="btn btn-default btn-sm" (click)="putRetainer(retainer)">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button type="button" class="btn btn-default btn-sm" (click)="deleteRetainer(retainer)">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+</div>

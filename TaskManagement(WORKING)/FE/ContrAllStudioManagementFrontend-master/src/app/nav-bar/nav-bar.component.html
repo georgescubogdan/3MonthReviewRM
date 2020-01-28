@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+    <div class="d-flex" style="width: 100%;">
+        <div class="navbar-brand">
+            <a [routerLink]="['/login']" routerLinkActive="router-link-active" >
+                <img src="../../assets/images/main-logo.svg" width="110" height="mr-auto">
+            </a>
+        </div>
+
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse ml-auto" id="navbarDesktop">
+            <ul class="navbar-nav ml-auto" style="justify-content: flex-end; text-align: right;">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Produse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">De ce noi?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Resurse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Preturi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="collapse" id="navbarMobile">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Produse</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">De ce noi?</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Resurse</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Preturi1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact1</a>
+            </li>
+        </ul>
+        <button class="btn btn-light my-2 my-sm-0 nav-item" style="margin-right: 10px; width: 100px;" routerLink='/login'>Login</button>
+        <button class="btn btn-outline-light my-2 my-sm-0 nav-item" style="width: 100px;" routerLink='/register'>Register</button>
+    </div>
+</nav>

@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h4 class="modal-title">Editare user</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  <form [formGroup]="editUserForm" (ngSubmit)="onEditSubmitUser()">
+
+    <div class="form-group">
+      Username:
+      <input type="text" class="form-control" formControlName="userName" [(value)]="user.userName">
+    </div>
+  <div class="form-row">
+      <div class="form-group">
+      Email:
+        <input type="text" class="form-control" formControlName="email" style="width: 90%" [(value)]="user.email">
+      </div>
+    <div class="form-group">
+      Telefon:
+      <input type="text" class="form-control" formControlName="phoneNumber" [(value)]="user.phoneNumber">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        Nume: 
+        <input type="text" class="form-control" formControlName="lastName" [(value)]="user.lastName">
+      </div>
+      <div class="form-group col-md-6">
+        Prenume: 
+        <input type="text" class="form-control" formControlName="firstName" [(value)]="user.firstName">
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" ngbAutofocus class="btn focus-btn col-6" (click)="onEditSubmitUser()" ngbAutofocus>Salvare</button>
+  <button type="button" class="btn sec-focus-btn col-6" (click)="activeModal.close('Close click')">Anulare</button>
+</div>

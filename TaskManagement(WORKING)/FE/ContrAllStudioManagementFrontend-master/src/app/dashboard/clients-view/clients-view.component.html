@@ -1,0 +1,69 @@
+<div style="padding: 30px;">
+  <div class="d-flex flex-wrap">
+    <div style="width: 30%;">
+        <input class="form-control search-box" type="text" name="searchTerm" [(ngModel)]="service.searchTerm" placeholder="Cautare" style="width: 100%; max-width: 300px;"/>
+    </div>
+    <div style="width: 40%; padding-top: 6px;">
+      <div style="display: block; margin: auto; width: 30px;">
+        <span style="width: 50%;" *ngIf="service.loading$ | async">
+          <div class="lds-circle"><div></div></div>
+        </span>
+      </div>
+    </div>
+    <div style="width: 30%;">
+      <button class="btn focus-btn" style="float: right; margin-right: 5px;" (click)="open()">ADAUGA CLIENT</button>
+    </div>
+  </div>
+
+  <div class="table-container" style="margin-top: 30px; max-height: 75vh;">
+    <div class="d-flex justify-content-between p-2">
+      <ngb-pagination
+        [collectionSize]="total" [(page)]="service.page" [pageSize]="service.pageSize">
+      </ngb-pagination>
+  
+      <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+        <option [ngValue]="10">10 clienti pe pagina</option>
+        <option [ngValue]="15">15 clienti pe pagina</option>
+        <option [ngValue]="20">20 clienti pe pagina</option>
+        <option [ngValue]="total">Afiseaza tot</option>
+      </select>
+    </div>
+
+    <div style="overflow: auto;">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 10%; margin-right:10px">#</th>
+          <th scope="col" style="width: 30%; margin-left: 10px;" sortable="name" (sort)="onSort($event)">Client</th>
+          <th scope="col" style="width: 30%;" sortable="city" (sort)="onSort($event)">Oras</th>
+          <th scope="col" style="width: 30%;"sortable="county" (sort)="onSort($event)">Judet</th>
+          <th scope="col"  style="width: 90%;"sortable="clientId" (sort)="onSort($event)">Cod Sistem</th>
+          <th scope="col" style="width: 100px;"></th>
+        </tr>
+      </thead>
+
+      <tbody style="max-height: 56vh;">
+        <tr *ngFor="let client of clients; index as i">
+          <th scope="row" style="width: 10%;">{{ i + 1 + service.pageSize * (service.page -1)}}</th>
+          <td style="width: 30%;">{{ client.name }}</td>
+          <td style="width: 30%;">{{ client.city}}</td>
+          <td style="width: 30%;">{{ client.county}}</td>
+          <td style="width: 90%;">{{ client.clientId}}</td>
+          <td style="width: 150px;">
+              <button type="button" class="btn btn-default btn-sm" (click)="openEditClient(client)">
+                  <i class="fas fa-edit"></i>
+              </button>
+              <button type="button" class="btn btn-default btn-sm" (click)="deleteClient(client.clientId)">
+                  <i class="fas fa-trash-alt"></i>
+              </button>
+              <button type="button" class="btn btn-default btn-sm" (click)="blockServices(client)"> 
+                <i class="fa fa-ban"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+</div>

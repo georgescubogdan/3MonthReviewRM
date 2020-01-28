@@ -1,0 +1,289 @@
+.body {
+    height: 100vh;
+    background-color: #eff4f5;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.left-panel {
+    background-color: #264F73;
+    position: absolute;
+    height: 100vh;
+    z-index: 10;
+}
+
+.colapse-btn a img:hover {
+    filter: brightness(150%);
+}
+
+h4 {
+    color: var(--main-color-1);
+    border-bottom: 1px solid var(--default-text-color);
+    width: 120px;
+    padding-bottom: 15px;
+}
+
+h6 {
+    font-size: 13px;
+    align-self: center;
+}
+
+.tab {
+    padding: 15px 10%;
+    text-decoration: none;
+    color: var(--default-text-color);
+    transition: .2s;
+}
+
+.tab-selected {
+    border-left: 5px solid var(--main-color-1);
+    background-color: #365F83;
+}
+
+.tab:hover {
+    background-color: #365F83;
+    border-left: 5px solid var(--main-color-1);
+}
+
+.tab-icon {
+    width: 20px;
+    display: block;
+    margin: auto;
+}
+
+/* DASHBOARD RESPONSIVNES */
+
+.expand-btn-contain, .close-btn-contain {
+    margin-top: 20px;
+}
+
+.expand-dash, .close-dash {
+    transition: .2s;
+}
+
+.close-btn, .expand-btn {
+    height: 25px;
+    transition: 0.1s;
+    cursor: pointer;
+    display: block;
+}
+
+.small-btn {
+    display: none;
+}
+
+/* LARGE */
+
+@media (min-width: 1025px) {
+
+    .expand-dash {
+        width: 15%;
+    }
+
+    .close-dash {
+        width: 5%;
+    }
+
+    .expand-main {
+        width: 85%;
+        margin-left: 15%;
+    }
+
+    .close-main {
+        width: 95%;
+        margin-left: 5%;
+    }
+
+    .expand-btn-contain {
+        width: 40%;
+    }
+
+    .close-btn-contain {
+        width: 100%;
+    }
+
+    .expand-logo {
+        display: block;
+    }
+
+    .close-logo {
+        display: none;
+    }
+
+    .expand-btn {
+        float: right;
+    }
+    
+    .close-btn {
+        margin: auto;
+        transform: scaleX(-1);
+    }
+
+    .close-title {
+        display: none;
+    }
+
+    .expand-title {
+        display: block;
+    }
+
+    .expand-icon, .close-icon {
+        display: block;
+    }
+    
+    .expand-icon {
+        width: auto;
+    }
+
+    .close-icon {
+        width: 90%;
+    }
+    
+    .expand-text {
+        display: block;
+    }
+    
+    .close-text {
+        display: none;
+    }
+
+}
+
+/* MEDIUM */
+  
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .expand-dash {
+        width: 8%;
+    }
+
+    .close-dash {
+        width: 20%;
+    }
+
+    .expand-main, .close-main {
+        width: 92%;
+        margin-left: 5%;
+    }
+
+    .expand-btn-contain {
+        width: 100%;
+    }
+
+    .close-btn-contain {
+        width: 40%;
+    }
+
+    .close-title {
+        display: block;
+    }
+
+    .expand-title {
+        display: none;
+    }
+
+    .expand-logo {
+        display: none;
+    }
+
+    .close-logo {
+        display: block;
+    }
+
+    .expand-btn {
+        margin: auto;
+        transform: scaleX(-1);
+    }
+    
+    .close-btn {
+        float: right;
+    }
+
+    .expand-icon, .close-icon {
+        display: block;
+    }
+    
+    .expand-icon {
+        width: 90%;
+    }
+
+    .close-icon {
+        width: auto;
+    }
+    
+    .expand-text {
+        display: none;
+    }
+    
+    .close-text {
+        display: block;
+    }
+
+}
+  
+/* MOBILE */
+  
+@media (min-width: 320px) and (max-width: 767px) {
+
+    .expand-dash {
+        display: none;
+    }
+
+    .close-dash {
+        width: 60%;
+    }
+
+    .expand-main, .close-main {
+        width: 100%;
+    }
+
+    .expand-btn-contain {
+        width: 100%;
+    }
+
+    .close-btn-contain {
+        width: 40%;
+    }
+
+    .expand-logo {
+        display: none;
+    }
+
+    .close-logo {
+        display: block;
+    }
+
+    .expand-btn {
+        margin: auto;
+        transform: scaleX(-1);
+    }
+    
+    .close-btn {
+        float: right;
+    }
+
+    .small-btn {
+        display: block;
+    }
+
+    .expand-icon, .close-icon {
+        display: block;
+    }
+    
+    .expand-icon {
+        width: 90%;
+    }
+
+    .close-icon {
+        width: auto;
+    }
+    
+    .expand-text {
+        display: none;
+    }
+    
+    .close-text {
+        display: block;
+    }
+
+}

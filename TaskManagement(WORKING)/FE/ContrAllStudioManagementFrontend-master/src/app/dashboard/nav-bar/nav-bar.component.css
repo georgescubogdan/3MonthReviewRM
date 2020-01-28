@@ -1,0 +1,80 @@
+.nav-container {
+    width: 100%;
+    height: 50px;
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+}
+
+.nume-utilizator {
+    text-decoration: none;
+    color: #264F73;
+    font-weight: 600;
+}
+
+.dropdown-menu {
+    min-width: 250px;
+    box-shadow: var(--default-box-shadow);
+    border: none;
+    border-radius: 20px;
+}
+
+.my-jobs-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.title {
+    width: 80%;
+    color: #264F73;
+    font-weight: 600;
+}
+
+.add-btn-container {
+    width: 20%;
+}
+
+.add-btn-container a img {
+    height: 25px;
+}
+
+.separator {
+    width: 100%;
+    background-color: var(--default-text-color);
+    height: 1px;
+    margin-top: 10px;
+}
+
+.listed-job {
+    color: var(--default-text-color);
+    font-size: 13px;
+}
+
+.user-icon {
+    height: 16px;
+    margin-left: 10px;
+}
+
+.button-inactive {
+    background-color:#264F73;
+    margin: 15px auto;
+    border-radius: 50%;
+    padding: 4px;
+    border: none;
+}
+
+.button-active {
+    background-color: rgba(189, 190, 191, 1);
+    margin: 15px auto;
+    border-radius: 50%;
+    padding: 4px;
+    border: none;
+}
+
+.button-active, .button-inactive {
+    outline: none;
+}
+
+

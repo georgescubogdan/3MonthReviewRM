@@ -1,0 +1,75 @@
+<div style="padding: 30px; max-width: auto;"  >
+    
+     
+    
+  <div class="d-flex flex-wrap">
+   
+
+    <div style="width: 40%; padding-top: 6px;">
+      <div style="display: block; margin: auto; width: 30px;">
+        <span style="width: 50%;" *ngIf="usersService.loading$ | async">
+          <div class="lds-circle"><div></div></div>
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group" >
+        <input class="form-control" placeholder="yyyy-mm-dd"
+               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (ngModelChange)="searchDate($event)" >
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+    <div style="width: 30%;">
+      <button class="btn focus-btn" style="float: right; margin-right: 20px;" (click)="openDateAdd()"> ADAUGA DATA</button>
+    </div>
+  </div>
+
+      <div class="table-container" style="margin-top: 30px; max-height: 55vh;" >
+        <div class="d-flex justify-content-between p-2">
+          <div style="width: 50%;">
+            <ngb-pagination [collectionSize]="totalDates" [(page)]="usersService.page" [pageSize]="usersService.pageSize"></ngb-pagination>
+          </div>
+          <div style="width: 50%;">
+            <select class="custom-select" style="width: auto; float: right;" name="pageSize" [(ngModel)]="usersService.pageSize">
+              <option [ngValue]="10">10 date pe pagina</option>
+              <option [ngValue]="15">15 date pe pagina</option>
+              <option [ngValue]="20">20 date pe pagina</option>
+              <option [ngValue]="totalDates">Afiseaza tot</option>
+            </select>
+          </div>
+        </div> 
+        
+        <div style="width: 100%; height: auto; ">
+          <table class="table table-striped">
+            <thead style="max-width: auto">
+              <tr>
+                <th scope="col" style="width: 10px;">#</th>
+                <th scope="col" style="width: 90%;" sortable="currentDate" (sort)="onSort($event)" table="profile" >Data</th>
+                <th scope="col" style="width: 70%;" table="profile" >Timp total</th>            
+                <th scope="col" style="width:auto;"></th>            
+              </tr>
+            </thead>
+  
+            <tbody style="max-height: 30vh;">
+              
+              <tr *ngFor="let date of datesFiltered; index as i">                                           
+                <th scope="row" style="width: 5px;">{{ i + 1}}</th>
+                <td style="width: 90%; max-width: auto;" ngbTooltip="{{ date.currentDate }}"> {{ date.currentDate | date }} </td>
+                <td style="width: 90%; max-width: auto;" ngbTooltip="{{ date.totalTime}}" >{{ date.totalTime.toLowerCase() }}</td>                           
+                <td style="width: 90px;"> 
+                   <button type="button" class="btn btn-default btn-sm" (click)="edit(date)">
+                      <i class="fas fa-edit"></i>
+                      
+                  </button>
+                  <button type="button" class="btn btn-default btn-sm" (click)="delete(date)">
+                      <i class="fas fa-trash-alt"></i>
+                  </button> 
+                </td> </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+ 
+    </div> 

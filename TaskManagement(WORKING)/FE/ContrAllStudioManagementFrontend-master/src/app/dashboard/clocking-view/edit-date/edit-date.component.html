@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h4 class="modal-title">Editare Data</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<div class="modal-body">
+
+  <form [formGroup]="addDateForm" (ngSubmit)="onSubmitDate()">
+      <div class="form-row">
+
+    
+
+      <div class="form-group">
+        Minute: <input mdbValidate type="text" class="form-control" formControlName="minutes" [(value)]="date.minutes">
+      </div>
+      <div class="form-group">
+        Secunde: <input mdbValidate type="text" class="form-control" formControlName="seconds" [(value)]="date.seconds">
+      </div>
+      <div class="form-group">
+          Ore: <input mdbValidate type="text" class="form-control" formControlName="hours" [(value)]="date.hours">
+        </div>
+    </div>
+      <br>
+      </form>
+    </div>
+
+<div class="modal-footer">
+  <button type="button" ngbAutofocus class="btn focus-btn col-6" (click)="onSubmitDate()" [disabled]="addDateForm.invalid" ngbAutofocus>Salvare</button>
+  <button type="button" class="btn sec-focus-btn col-6" (click)="activeModal.close('Close click')">Anulare</button>
+</div>

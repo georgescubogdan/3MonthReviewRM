@@ -1,0 +1,62 @@
+<div class="modal-header">
+    <h4 class="modal-title">Editare client</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  <form [formGroup]="editClientForm" (ngSubmit)="onEditSubmitClient()">
+
+    <div class="form-group">
+      Nume:
+      <input type="text" class="form-control" formControlName="nume" [(value)]="client.name">
+    </div>
+  <div class="form-row">
+      <div class="form-group">
+      Oras:
+        <input type="text" class="form-control" formControlName="localitate" style="width: 90%" [(value)]="client.city">
+      </div>
+
+    <div class="form-group">
+      Judet:
+      <input mdbValidate type="text" class="form-control" formControlName="judet" [(value)]="client.county">
+    </div>
+  </div>
+    <div class="custom-control custom-switch" style="display: inline; margin-left: 60px">
+      <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="sal" [(value)]="client.sal">
+      <label class="custom-control-label" for="customSwitch1">SAL</label>
+    </div>
+    <div class="custom-control custom-switch" style="display: inline; margin-left: 20px" >
+      <input type="checkbox" class="custom-control-input" id="customSwitch2" formControlName="reg" [(value)]="client.sal">
+      <label class="custom-control-label" for="customSwitch2">REG</label>
+    </div>
+    <div class="custom-control custom-switch" style="display: inline; margin-left: 20px">
+      <input type="checkbox" class="custom-control-input" id="customSwitch3" formControlName="vmg" [(value)]="client.sal">
+      <label class="custom-control-label" for="customSwitch3">VMG</label>
+    </div>
+    <div class="custom-control custom-switch" style="display: inline; margin-left: 20px">
+      <input type="checkbox" class="custom-control-input" id="customSwitch4" formControlName="ail" [(value)]="client.sal">
+      <label class="custom-control-label" for="customSwitch4">AIL</label>
+    </div>
+    <div>
+    <div class="custom-control custom-switch" style="display: inline ; margin-left: 90px">
+      <input type="checkbox" class="custom-control-input" id="customSwitch5" formControlName="asf" [(value)]="client.sal">
+      <label class="custom-control-label" for="customSwitch5">ASF</label>
+    </div>
+    <div class="custom-control custom-switch" style="display: inline; margin-left: 20px" >
+      <input type="checkbox" class="custom-control-input" id="customSwitch6" formControlName="imp" [(value)]="client.sal">
+      <label class="custom-control-label" for="customSwitch6">IMP</label>
+    </div>
+    <div class="custom-control custom-switch" style="display: inline; margin-left: 20px">
+      <input type="checkbox" class="custom-control-input" id="customSwitch7" formControlName="con" [(value)]="client.sal">
+      <label class="custom-control-label" for="customSwitch7">CON</label>
+    </div>
+  </div>
+
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" ngbAutofocus class="btn focus-btn col-6" (click)="onEditSubmitClient()" ngbAutofocus>Salvare</button>
+  <button type="button" class="btn sec-focus-btn col-6" (click)="activeModal.close('Close click')">Anulare</button>
+</div>

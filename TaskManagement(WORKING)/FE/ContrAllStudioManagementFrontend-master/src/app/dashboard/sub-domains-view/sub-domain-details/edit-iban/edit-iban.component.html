@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h4 class="modal-title">Editare Iban</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<div class="modal-body">
+
+  <form [formGroup]="addIbanForm" (ngSubmit)="onSubmitDateFirma()">
+      <div class="form-row">
+
+    <div class="form-group">
+      Iban: <input type="text" class="form-control" formControlName="iban" [(value)]="iban.iban" style="width: 90%">
+    </div>
+    <div class="form-group">
+    Formula: <input mdbValidate type="text" class="form-control" formControlName="formula" [(value)]="iban.formula">
+    </div>
+    <div>
+      </div>  
+        Sursa de finantare:
+        <select class="custom-select" style="width: auto; float: left;" name="pageSize" formControlName="financeSource" style="width: 100%">
+            <option *ngFor='let option of financeOptions' [(value)]="option"> {{option}}</option>
+        </select>
+      </div>
+      <br>
+      </form>
+    </div>
+
+<div class="modal-footer">
+  <button type="button" ngbAutofocus class="btn focus-btn col-6" (click)="onSubmitDateFirma()" [disabled]="addIbanForm.invalid" ngbAutofocus>Salvare</button>
+  <button type="button" class="btn sec-focus-btn col-6" (click)="activeModal.close('Close click')">Anulare</button>
+</div>

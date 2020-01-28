@@ -1,0 +1,48 @@
+<div class="modal-header">
+    <h4 class="modal-title">Editare Concediu</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
+  <div class="modal-body">
+    <form [formGroup] = "addVacationDayForm" (ngSubmit)="onSubmitVacation()">
+  
+      <ngb-datepicker #dp (select)="onDateSelection($event)" 
+                          [displayMonths]="2" 
+                          [dayTemplate]="t" 
+                          [minDate]="{year: 2010, month: 1, day: 1}"
+                          [maxDate]="{year: 2048, month: 12, day: 31}"
+                          [markDisabled]="isDisabled"
+                          [startDate]="{year: fromTest?.year, month: fromTest?.month, day: fromTest?.day}"
+                          outsideDays = "hidden">
+      </ngb-datepicker>
+  
+      <ng-template #t let-date let-focused="focused">
+        <span class="custom-day"
+              [class.focused]="focused"
+              [class.range]="isRange(date)"
+              [class.faded]="isHovered(date) || isInside(date)"
+              [class.weekend]="isWeekend(date)"
+              (mouseenter)="hoveredDate = date"
+              (mouseleave)="hoveredDate = null">
+          {{ date.day }}
+        </span>
+      </ng-template>
+  
+      <div *ngIf="roles?.indexOf('admin') !== -1" class="custom-control custom-switch" style="padding: 10px 0px 10px 100px">
+        <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="state" [(value)]="vacationDay.state">
+        <label class="custom-control-label" for="customSwitch1">Concediu aprobat</label>
+      </div>
+
+      <div class="form-group">
+        Motiv concediu: <input type="text" class="form-control" formControlName="reason">
+     </div>
+  
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" [disabled]='!activeButton' class="btn focus-btn col-6" (click)="onSubmitVacation()">Confirmare</button>
+    <button type="button" class="btn sec-focus-btn col-6" (click)="activeModal.close('Close click')">Anulare</button>
+  </div>

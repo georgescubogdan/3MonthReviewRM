@@ -1,0 +1,41 @@
+<!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  
+  <label>
+    First Name:
+    <input type="text" formControlName="email" required>
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="password">
+  </label>
+
+  <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+
+</form> -->
+
+<div class="container">
+  <div class="row align-items-center" style="height: 80vh;">
+    <div class="col-1 col-md-3"></div>
+    <div class="form-container col-10 col-md-6" style="padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #c4c4c4;">
+
+      <h3 style="text-align: center; margin-bottom: 20px;">Logare</h3>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input type="email" class="form-control" formControlName="email" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" formControlName="password" placeholder="Parola">
+        </div>
+        <ngb-alert *ngIf="loginErrorMessage" [dismissible]="false">
+          <span [innerHTML]="loginErrorMessage"></span>
+        </ngb-alert>
+        <div class="row justify-content-center">
+          <button class="btn btn-primary col-10 col-md-6"  type="submit" style="margin: 5px;">Logare</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-1 col-md-3"></div>
+  </div>
+</div>

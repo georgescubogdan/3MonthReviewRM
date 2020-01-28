@@ -1,0 +1,100 @@
+<div class="body">
+  <!-- panou stanga -->
+  <div class="left-panel" [ngClass]="{'close-dash': expand==false, 'expand-dash': expand==true}">
+    <div class="d-flex flex-wrap" style="width: 90%;">
+     
+      <div style="width: 50%; margin-top: 20px; margin-left: 10%" [ngClass]="{'close-logo': expand==false, 'expand-logo': expand==true}">
+        <img src="../../../assets/images/Asset 21.svg" style="height: 30px;">
+      </div>
+      <div class="colapse-btn" [ngClass]="{'close-btn-contain': expand==false, 'expand-btn-contain': expand==true}">
+        <a (click)="Expand()">
+          <img src="../../../assets/images/minimize-panel.svg" [ngClass]="{'close-btn': expand==false, 'expand-btn': expand==true}">
+        </a>
+      </div>
+      <div style="width: 100%; margin-top: 30px;  margin-left: 5%; margin-bottom: 30px" [ngClass]="{'close-logo': expand==true, 'expand-logo': expand==false}">
+        <img src="../../../assets/images/Asset 22.svg" style="height: 20px; margin: auto; display: block;">
+      </div>
+      
+    </div>
+
+    <div style="width: 100%;">
+
+      <div>
+          <h4 [ngClass]="{'close-title': expand==false, 'expand-title': expand==true}" style="margin-top: 60px; font-size: 16px; margin-left: 10%;"></h4>
+      </div>
+      
+      <a *ngIf="authorization.isConsultant || authorization.isAdmin" [routerLink]="['Formula']" class="d-flex tab" (click)="tabSelect(5)" [ngClass]="{'tab-selected': tabSelected==5}">
+        <div [ngClass]="{'close-icon': expand==false, 'expand-icon': expand==true}">
+            <img src="../../../assets/images/Asset 19.svg" class="tab-icon">
+        </div>
+        <h6 style="margin-left: 10px;" [ngClass]="{'close-text': expand==false, 'expand-text': expand==true}">Formule</h6>
+      </a>
+      <a *ngIf="authorization.isConsultant || authorization.isAdmin" [routerLink]="['legalDays']" class="d-flex tab" (click)="tabSelect(6)" [ngClass]="{'tab-selected': tabSelected==6}">
+        <div [ngClass]="{'close-icon': expand==false, 'expand-icon': expand==true}">
+            <img src="../../../assets/images/Asset 20.svg" class="tab-icon">
+        </div>
+        <h6 style="margin-left: 10px;" [ngClass]="{'close-text': expand==false, 'expand-text': expand==true}">Zile Libere</h6>
+      </a>
+
+      <a *ngIf="authorization.isConsultant || authorization.isAdmin" [routerLink]="['SRView']" class="d-flex tab" (click)="tabSelect(4)" [ngClass]="{'tab-selected': tabSelected==4}">
+          <div [ngClass]="{'close-icon': expand==false, 'expand-icon': expand==true}">
+              <img src="../../../assets/images/Asset 16.svg" class="tab-icon">
+          </div>
+          <h6 style="margin-left: 10px;" [ngClass]="{'close-text': expand==false, 'expand-text': expand==true}">Sporuri si retineri</h6>
+        </a>
+        
+        <a *ngIf="authorization.isConsultant || authorization.isAdmin" [routerLink]="['SubDomains']" class="d-flex tab" (click)="tabSelect(7)" [ngClass]="{'tab-selected': tabSelected==7}">
+            <div [ngClass]="{'close-icon': expand==false, 'expand-icon': expand==true}">
+                <img src="../../../assets/images/Asset 18.svg" class="tab-icon">
+            </div>
+            <h6 style="margin-left: 10px;" [ngClass]="{'close-text': expand==false, 'expand-text': expand==true}">Subdomenii</h6>
+          </a>
+          <a *ngIf="authorization.isAdmin" [routerLink]="['clienti']" class="d-flex tab" (click)="tabSelect(8)" [ngClass]="{'tab-selected': tabSelected==8}">
+            <div [ngClass]="{'close-icon': expand==false, 'expand-icon': expand==true}">
+                <img src="../../../assets/images/Asset 17.svg" class="tab-icon">
+            </div>
+            <h6 style="margin-left: 10px;" [ngClass]="{'close-text': expand==false, 'expand-text': expand==true}">Clienti</h6>
+          </a>
+          <a *ngIf="authorization.isAdmin" [routerLink]="['useri']" class="d-flex tab" (click)="tabSelect(9)" [ngClass]="{'tab-selected': tabSelected==9}">
+            <div [ngClass]="{'close-icon': expand==false, 'expand-icon': expand==true}">
+                <img src="../../../assets/images/Asset 17.svg" class="tab-icon">
+            </div>
+            <h6 style="margin-left: 10px;" [ngClass]="{'close-text': expand==false, 'expand-text': expand==true}">Useri</h6>
+          </a>
+         
+          <a [routerLink]="['clocking-view']" class="d-flex tab" (click)="tabSelect(10)" [ngClass]="{'tab-selected': tabSelected==10}">
+            <div [ngClass]="{'close-icon': expand==false, 'expand-icon': expand==true}">
+                <img src="../../../assets/images/schedule_modificat.svg" class="tab-icon">
+            </div>
+            <h6 style="margin-left: 10px;" [ngClass]="{'close-text': expand==false, 'expand-text': expand==true}">Pontaje</h6>
+          </a>
+          <a [routerLink]="['vacation-days-view']" class="d-flex tab" (click)="tabSelect(11)" [ngClass]="{'tab-selected': tabSelected==11}">
+            <div [ngClass]="{'close-icon': expand==false, 'expand-icon': expand==true}">
+                <img src="../../../assets/images/calendar.svg" class="tab-icon">
+            </div>
+            <h6 style="margin-left: 10px;" [ngClass]="{'close-text': expand==false, 'expand-text': expand==true}">Zile concediu</h6>
+          </a>
+          <a [routerLink]="['task-management']" class="d-flex tab" (click)="tabSelect(12)" [ngClass]="{'tab-selected': tabSelected==12}">
+            <div [ngClass]="{'close-icon': expand==false, 'expand-icon': expand==true}">
+                <img src="../../../assets/images/calendar.svg" class="tab-icon">
+            </div>
+            <h6 style="margin-left: 10px;" [ngClass]="{'close-text': expand==false, 'expand-text': expand==true}">Task Management</h6>
+          </a>
+
+
+
+    </div>
+  </div>
+  <!-- main dashboard -->
+  <div class="focused-content px-0" [ngClass]="{'close-main': expand==false, 'expand-main': expand==true}" style="height: 94%;">
+    <div style="display: flex; flex-wrap: wrap; width: 100%; background-color: white; box-shadow: 0px 0px 20px rgba(189, 190, 191, .5);">
+      <div class="col-2" style="height: 50px;">
+        <a (click)="Expand()" class="small-btn">
+          <img src="../../../assets/images/minimize-panel.svg" style="height: 25px; margin-top: 10px; transform: scaleX(-1); cursor: pointer;">
+        </a>
+      </div>
+      <app-nav-bar class="px-0 col-10"></app-nav-bar>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

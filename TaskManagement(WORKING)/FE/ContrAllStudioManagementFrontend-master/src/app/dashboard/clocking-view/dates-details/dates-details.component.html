@@ -1,0 +1,81 @@
+<div style="padding: 30px; max-width: auto;"  >
+    
+     
+    
+  <div class="d-flex flex-wrap">
+   
+
+      <ngb-tabset (tabChange)='filterDates($event); takeDays($event)'>
+
+          <div *ngFor='let month of months' >
+          <ngb-tab title='{{ translate[month - 1] }}' id='{{month}}'>
+
+            <ng-template ngbTabContent >
+              
+                <div ngbDropdown class="d-inline-block">
+                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle> Zi </button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+                      <button ngbDropdownItem id='day' *ngFor ='let day of days' (click)='filterDays(day)'>{{ day }}</button>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-wrap" style="margin-bottom: 20px;">
+                      <div style="width: 30%;">
+                        <input class="form-control search-box" type="text" name="searchTerm" [(ngModel)]="datesService.searchTerm" placeholder="Cautare user" style="width: 100%; max-width: 300px;"/>
+                      </div>
+                      <div style="width: 40%; padding-top: 6px;">
+                        <div style="display: block; margin: auto; width: 30px;">
+                          <span *ngIf="datesService.loading$ | async">
+                            <div class="lds-circle"></div>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                <div class="table-container" style="margin-top: 30px; max-height: 55vh;">
+                    <div class="d-flex justify-content-between p-2">
+                      <div style="width: 50%;">
+                        <ngb-pagination [collectionSize]="totalDates" [(page)]="datesService.page" [pageSize]="datesService.pageSize"></ngb-pagination>
+                      </div>
+                      <div style="width: 50%;">
+                        <select class="custom-select" style="width: auto; float: right;" name="pageSize" [(ngModel)]="datesService.pageSize">
+                          <option [ngValue]="10">10 date pe pagina</option>
+                          <option [ngValue]="15">15 date pe pagina</option>
+                          <option [ngValue]="20">20 date pe pagina</option>
+                          <option [ngValue]="totalDates">Afiseaza tot</option>
+                        </select>
+                      </div>
+                    </div> 
+                    
+                    <div style="width: 100%; height: auto; ">
+                      <table class="table table-striped">
+                        <thead style="max-width: auto">
+                          <tr>
+                            <th scope="col" style="width: 10px;">#</th>
+                            <th scope="col" style="width: 90%;" sortable="fullName" (sort)="onSort($event)" table="profile" >User</th>
+                            <th scope="col" style="width: 70%;" table="profile" >Data</th>     
+                            <th scope="col" style="width: 70%;" table="profile" >Timp total</th>            
+                            <th scope="col" style="width:auto;"></th>            
+                          </tr>
+                        </thead>
+              
+                        <tbody style="max-height: 30vh;">
+                          
+                          <tr *ngFor="let date of filteredDates; index as i">                                           
+                            <th scope="row" style="width: 5px;">{{ i + 1}}</th>
+                            <td style="width: 90%; max-width: auto;" ngbTooltip="{{ date.user.fullName }}"> {{ date.user.fullName.toUpperCase() }} </td>
+                            <td style="width: 90%; max-width: auto;" ngbTooltip="{{ date.currentDate}}"> {{ date.currentDate | date }} </td>
+                            <td style="width: 90%; max-width: auto;" ngbTooltip="{{ date.totalTime}}" >{{ date.totalTime.toLowerCase() }}</td>                           
+                            
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+            </ng-template>
+         
+          </ngb-tab>
+        </div>
+        </ngb-tabset>
+
+      </div>
+ 
+    </div> 

@@ -1,0 +1,36 @@
+.footer-title {
+    font-size: 19px;
+}
+
+.line-separator {
+    height: 1px;
+    background-color: white;
+    margin: 10px 0px 10px 0px;
+}
+
+.social-icons a {
+    filter: grayscale(100%);
+    transition: .3s;
+}
+
+.social-icons a:hover {
+    filter: grayscale(0%);
+}
+
+.footer-link {
+    line-height: 2rem;
+}
+
+.vertical-separator {
+    margin: 0 20px
+}
+
+.footer-base {
+    background-color: #c4c4c4;
+}
+
+.base-text a, .vertical-separator {
+    font-size: 14px;
+    color: #343434;
+    text-decoration: none;
+}

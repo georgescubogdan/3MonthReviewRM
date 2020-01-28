@@ -1,0 +1,69 @@
+<div style="padding: 30px 30px 0px 30px" class="d-flex flex-wrap">
+  <div style="width: 100%">
+    
+    <div class="d-flex flex-wrap" style="margin-bottom: 20px;">
+      <div style="width: 30%;">
+        <input class="form-control search-box" type="text" name="searchTerm" [(ngModel)]="formulaService.searchTerm" placeholder="Cautare formula" style="width: 100%; max-width: 300px;"/>
+      </div>
+      <div style="width: 40%; padding-top: 6px;">
+        <div style="display: block; margin: auto; width: 30px;">
+          <span *ngIf="formulaService.loading$ | async">
+            <div class="lds-circle"><div></div></div>
+          </span>
+        </div>
+      </div>
+      
+      <div style="width: 30%;">
+        <button class="btn focus-btn" style="float: right;" (click)="openFormulaAdd()">ADAUGA FORMULA</button>
+      </div>
+    </div>
+    <div class="table-container" style="margin-top: 30px; max-height: 75vh;">
+      <div class="d-flex justify-content-between p-2">
+        <div style="width: 50%;">
+          <ngb-pagination [collectionSize]="totalFormulas" [(page)]="formulaService.page" [pageSize]="formulaService.pageSize"></ngb-pagination>
+        </div>
+        <div style="width: 50%;">
+          <select class="custom-select" style="width: auto; float: right;" name="pageSize" [(ngModel)]="formulaService.pageSize">
+            <option [ngValue]="10">10 formule pe pagina</option>
+            <option [ngValue]="15">15 formule pe pagina</option>
+            <option [ngValue]="20">20 formule pe pagina</option>
+            <option [ngValue]="totalFormulas">Afiseaza tot</option>
+          </select>
+        </div>
+      </div> 
+  
+      <div style="overflow: auto;">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 50px;">#</th>
+              <th scope="col" style="width: 100px;" sortable="name" table="formulas" (sort)="onSort($event)">Nume</th>
+              <th scope="col" style="width: 100px;" sortable="priority" table="formulas" (sort)="onSort($event)">Prioritate</th>            
+              <th scope="col" sortable="formula" table="formulas" (sort)="onSort($event)">Formula</th>
+              <th scope="col">Descriere</th>
+              <th scope="col" style="width: 90px;"></th>            
+            </tr>
+          </thead>
+
+          <tbody style="max-height: 56vh;">
+            <tr *ngFor="let formula of formulas; index as i">
+              <th scope="row" style="width: 50px;">{{ i + 1 + formulaService.pageSize * (formulaService.page -1)}}</th>
+              <td style="width: 100px;">{{ formula.name.toUpperCase() }}</td>
+              <td style="width: 100px;">{{ formula.priority }}</td>
+              <td>{{ formula.formula.toUpperCase() }}</td>
+              <td>{{ formula.description }}</td>
+              <td style="width: 90px;">
+                <button type="button" class="btn btn-default btn-sm" (click)="put(formula)">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button type="button" class="btn btn-default btn-sm" (click)="delete(formula)">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div> 

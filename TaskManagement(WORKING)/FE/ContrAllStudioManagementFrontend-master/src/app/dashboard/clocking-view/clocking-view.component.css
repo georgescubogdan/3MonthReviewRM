@@ -1,0 +1,239 @@
+.modal {
+    background-color: red !important;
+  }
+  th[sortable] {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  th[sortable].desc:before, th[sortable].asc:before {
+    content: '';
+    display: block;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAmxJREFUeAHtmksrRVEUx72fH8CIGQNJkpGUUmakDEiZSJRIZsRQmCkTJRmZmJgQE0kpX0D5DJKJgff7v+ru2u3O3vvc67TOvsdatdrnnP1Y///v7HvvubdbUiIhBISAEBACQkAICAEhIAQ4CXSh2DnyDfmCPEG2Iv9F9MPlM/LHyAecdyMzHYNwR3fdNK/OH9HXl1UCozD24TCvILxizEDWIEzA0FcM8woCgRrJCoS5PIwrANQSMAJX1LEI9bqpQo4JYNFFKRSvIgsxHDVnqZgIkPnNBM0rIGtYk9YOOsqgbgepRCfdbmFtqhFkVEDVPjJp0+Z6e6hRHhqBKgg6ZDCvYBygVmUoEGoh5JTRvIJwhJo1aUOoh4CLPMyvxxi7EWOMgnCGsXXI1GIXlZUYX7ucU+kbR8NW8lh3O7cue0Pk32MKndfUxQFAwxdirk3fHappAnc0oqDPzDfGTBrCfHP04dM4oTV8cxr0SVzH9FF07xD3ib6xCDE+M+aUcVygtWzzbtGX2rPBrEUYfecfQkaFzYi6HjVnGBdtL7epqAlc1+jRdAap74RrnPc4BCijttY2tRcdN0g17w7HqZrXhdJTYAuS3hd8z+vKgK3V1zWPae0mZDMykadBn1hTQBLnZNwVrJpSe/NwEeDsEwCctEOsJTsgxLvCqUl2ACftEGvJDgjxrnBqkh3ASTvEWrIDQrwrnJpkB3DSDrGW7IAQ7wqnJtkBnLRztejXXVu4+mxz/nQ9jR1w5VB86ejLTFcnnDwhzV+F6T+CHZlx6THSjn76eyyBIOPHyDakhBAQAkJACAgBISAEhIAQYCLwC8JxpAmsEGt6AAAAAElFTkSuQmCC') no-repeat;
+    background-size: 22px;
+    width: 22px;
+    height: 22px;
+    float: left;
+    margin-left: -22px;
+  }
+  
+  th[sortable].desc:before {
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  
+  /*CSS loading animation*/
+  
+  .lds-circle {
+    display: inline-block;
+    transform: translateZ(1px);
+  }
+  .lds-circle > div {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #264F73;
+    animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  @keyframes lds-circle {
+    0%, 100% {
+      animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+    }
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(1800deg);
+      animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+    }
+    100% {
+      transform: rotateY(3600deg);
+    }
+  }
+  
+  .focus-btn {
+    display: inline-block;
+    transition: 0.5s;
+    background-size: 200% auto;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0px 30px;
+    background-image: linear-gradient(to right, var(--main-color-1) 0%, var(--main-color-2) 51%, var(--main-color-1) 100%);
+    color: white;
+    box-shadow: none;
+  }
+  
+  .focus-btn:hover {
+    background-position: right center;
+    box-shadow:  0px 0px 10px rgba(189, 190, 191, 1);
+    cursor: pointer;
+  
+  }
+  
+  .search-box, .table-container {
+    border: none; 
+    border-radius: 30px;
+    background-color: white;
+    box-shadow: var(--default-box-shadow);
+    transition: 0.3s
+  }
+  
+  .search-box {
+    height: 40px;
+  }
+  
+  .search-box:focus {
+    box-shadow: 0px 0px 6px rgba(189, 190, 191, 1);
+  }
+  
+  .table-container {
+    padding: 20px 30px;
+    
+  }
+  
+  select, select:focus {
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+  }
+  .container {
+      float: left;
+      width: 400px
+  }
+  /* Sets button text when clicked. Should combine these later with wildcards */
+  #subs-table .btn-primary:before {
+  content:'Click for details';
+  }
+  #subs-table .btn-primary[aria-expanded="true"]:before {
+  content:'Close Details';
+  }
+  /* Styling of the collapsible row */
+  #subs-table td.collapse-row {
+  border-style: none;
+  padding: 0;
+  }
+  .panel-body {
+  height:auto; width: auto;
+  }
+  .t1 {
+      max-height: 700px;
+      overflow: scroll;
+       
+  }
+  .t2 {
+      height: auto;
+      width: auto; 
+  }
+  
+  .tab-categories{
+    width: 200px;
+    padding: 15px 10%;
+    text-decoration: none;
+    color: var(--default-text-color);
+    transition: .2s;
+  }
+  .tab-sd{
+  padding: 15px 10%;
+  text-decoration: none;
+  color: var(--default-text-color);
+  transition: .2s;
+  }
+  
+  .tab-categories-selected {
+    border-left: 5px solid var(--main-color-1);
+    background-color: #d8e0e8;
+   
+  }
+  .tab-sd-selected {
+  border-left: 5px solid var(--main-color-1);
+  background-color: #d8e0e8;
+  
+  }
+  
+  .tab-categories:hover {
+    background-color: #d8e0e8;
+    border-left: 5px solid var(--main-color-1);
+    cursor: pointer;
+  
+  }
+  .tab-sd:hover {
+  background-color: #d8e0e8;
+  border-left: 5px solid var(--main-color-1);
+  cursor: pointer;
+  
+  }
+  .tab-categories-icon {
+  width: auto;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  max-width: 40px;
+  max-height: 40px;
+  } 
+  .btn1:hover {
+    background-position: right center;
+    box-shadow:  0px 0px 10px rgba(189, 190, 191, 1);
+    cursor: pointer;
+    
+  }
+  
+  h6 {
+  font-weight: bold;
+  align-self: center;
+  font-size: 15px;
+  color: black;
+  
+  }
+  .ngb-accordion {
+  font-weight: bold;
+  align-self: center;
+  font-size: 15px;
+  color: black;
+  width: 100%;
+  height: 100%;
+  padding: .5rem 1.25rem; /* Or whatever padding you would have applied in the next rule*/
+  }
+  .pointer-plm, .h6{
+  cursor: pointer;
+  font-size: 17px;
+  float: left;
+  }
+  .jeg-btn{
+  background:none;
+  color:inherit;
+  border:none; 
+  padding:0!important;
+  font: inherit;
+  /*border is optional*/
+  font-weight: bold;
+  align-self: center;
+  font-size: 15px;
+  color: black;
+  padding: 15px 10%;
+  text-decoration: none;
+  transition: .2s;
+  
+  }
+  .jeg-btn-selected
+  {
+  border-left: 5px solid var(--main-color-1);
+  background-color: #d8e0e8; 
+  }
+  .jeg-btn:focus {
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  }
+  .tab-categories-icon1 {
+  width: auto;
+  display: block;
+  cursor: pointer;
+  max-width: 30px;
+  max-height: 30px;
+  } 
+  

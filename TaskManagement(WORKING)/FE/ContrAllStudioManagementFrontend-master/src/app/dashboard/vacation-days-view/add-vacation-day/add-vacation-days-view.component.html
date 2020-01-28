@@ -1,0 +1,47 @@
+<div class="modal-header">
+  <h4 class="modal-title">Adaugare Concediu</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <form [formGroup] = "addVacationDayForm" (ngSubmit)="onSubmitVacation()">
+
+    <ngb-datepicker #dp (select)="onDateSelection($event)" 
+                        [displayMonths]="2" 
+                        [dayTemplate]="t" 
+                        [minDate]="{year: 2010, month: 1, day: 1}"
+                        [maxDate]="{year: 2048, month: 12, day: 31}"
+                        [markDisabled]="isDisabled"
+                        outsideDays = "hidden">
+    </ngb-datepicker>
+
+    <ng-template #t let-date let-focused="focused">
+      <span class="custom-day"
+            [class.focused]="focused"
+            [class.range]="isRange(date)"
+            [class.faded]="isHovered(date) || isInside(date)"
+            [class.weekend]="isWeekend(date)"
+            (mouseenter)="hoveredDate = date"
+            (mouseleave)="hoveredDate = null">
+        {{ date.day }}
+      </span>
+    </ng-template>
+
+    <div class="form-group">
+      Motiv concediu: <input type="text" class="form-control" formControlName="reason">
+   </div>
+
+  </form>
+</div>
+
+<p style="text-align: center;">Doriti {{daysToAdd()}} zile de concediu de la {{getFromDate()}} pana la {{getToDate()}}?</p>
+
+<!-- Motivatie concediu(optional):
+<input type="text"> -->
+
+<div class="modal-footer">
+  <button type="button" [disabled]='!activeButton' class="btn focus-btn col-6" (click)="onSubmitVacation()">Confirmare</button>
+  <button type="button" class="btn sec-focus-btn col-6" (click)="activeModal.close('Close click')">Anulare</button>
+</div>

@@ -1,0 +1,59 @@
+<div style="padding: 30px;" class="d-flex flex-wrap" >
+ <div style="width: 30%; overflow: scroll; max-height: auto;" class="d-flex flex-wrap" >
+    <div class="table-container"  >
+        <div class="d-flex flex-wrap" style="margin-bottom: 5px; ">
+            <div style="width: 70%;" style="padding: 10px;">
+                <button class="btn focus-btn" (click)="addSubDomain()" >ADAUGA SUB DOMENIU</button>
+                <span style="width: 9%; float: right; transform: translate(40px,7px)" *ngIf="subDomainService.loading$ | async">
+                  <div class="lds-circle"><div></div></div>
+                </span>
+              </div> 
+            </div>
+      <div style="max-height: auto;"> 
+        <div class="panel-body" >       
+          <div class="t1">  
+            <div class="t2">
+              <ngb-accordion [closeOthers]="true">
+                  <ngb-panel  ngbPanelHeader *ngFor=" let sd of subDomains; let index = index" id="static-{{index}}" title="{{sd.name}}">
+                    
+                        <ng-template ngbPanelHeader > 
+                          <a class="d-flex tab-sdm" [ngClass]="{'tab-sd-selected': sdSelected==sd.subDomainId}" (click)="sdSelect(sd.subDomainId);deactivateDetails()" >
+                          <button class="jeg-btn" ngbPanelToggle style="float: left; width: 90%; height: 75;" data-toggle="expend" >
+                              {{sd.name}}
+                            </button>   
+                          
+                          <button type="button" style="float: right; width: 15%;" class="btn btn-default btn-sm" (click)="deleteSubDomain(sd.subDomainId)">
+                                <i class="fas fa-trash-alt"></i>
+                                </button> 
+                         </a>       
+                          </ng-template>
+                        
+                    <ng-template ngbPanelContent   >                        
+                        <div *ngFor=" let profile of sd.profiles; index as profileModelId"   id="static2-{{profileModelId}}" class="d-flex flex-wrap"> 
+                          
+                        <a  [routerLink]="['profile', profile.profileModelId]" class="d-flex tab-sdm" (click)="setActiveProfile(profile); tabSelect(profile.profileModelId)" [ngClass]="{'tab-sdm-selected': tabSelected==profile.profileModelId}" style="width: 85%;">
+                              <h6 style="margin-left: 10px;">{{profile.name}}</h6>
+                          </a>     
+                          <button type="button" style="float: right; width: 15%;" class="btn btn-default btn-sm" (click)="deleteProfile(profile.profileModelId)">
+                              <i class="fas fa-trash-alt"></i>
+                              </button>                        
+                        </div> 
+                        <div>
+                        <a class="d-flex tab-sdm" (click)="addProfile(sd); tabSelect(sd.subDomainId)" [ngClass]="{'tab-selected': tabSelected==sd.subDomainId}">                            
+                          <img src="../../../assets/images/add-job.svg" class="tab-sdm-icon1"> 
+                            <h6 class='pointer-plm' style="margin-left: 10px;" [ngClass]="{'close-text': expand==false, 'expand-text': expand==true}" >Adaugare Profil</h6>
+                          </a>                          
+                        </div>
+                    </ng-template>   
+                  </ngb-panel>
+                </ngb-accordion>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style ="width: 65%; margin-left: 10px; height: 70px;">
+    <router-outlet *ngIf="profActiv"></router-outlet>
+  </div> 
+ </div>
