@@ -23,8 +23,9 @@ namespace CoreModels.Models
 
         public bool ShouldGetPassword { get; set; }
 
-       public virtual List<Date> Date { get; set; }
+        public virtual List<Date> Date { get; set; }
 
         public virtual List<VacationDayModel> VacationDays { get; set; }
+        public List<UserTaskModel> UserTask { get; set; }
     }
 }

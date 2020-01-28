@@ -30,7 +30,7 @@ export class LoginFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  loginUser() {
     // TODO: Use EventEmitter with form value
     if (!this.submited) {
       this.submited = true;
@@ -56,7 +56,10 @@ export class LoginFormComponent implements OnInit {
       });
       this.submited = false;
     }
-
-
   }
+
+  registerUser() {
+    this.router.navigate(['/register']);
+  }
+
 }
