@@ -8,7 +8,7 @@
       <div cdkDropListGroup>
         <div class="example-container" *ngFor="let taskState of taskStates">
             <div>
-              <div style="font-size: larger; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width: 50%;">{{taskState.name}}</div>
+            <div style="font-size: larger; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width: 50%;">{{taskState.name}} {{taskState.taskStateID}}</div>
               <div style="max-width: 50%;">
                 <button type="button" class="btn btn-default btn-sm" (click)="addTask(taskState.taskStateID)">
                   <i class="fas fa-plus"></i>

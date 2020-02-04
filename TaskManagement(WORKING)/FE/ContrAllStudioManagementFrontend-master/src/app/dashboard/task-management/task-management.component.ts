@@ -8,6 +8,7 @@ import { EditTaskStateComponent } from './edit-task-state/edit-task-state.compon
 import { ToastrService } from 'ngx-toastr';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
+import { Task } from './task';
 
 @Component({
   selector: 'app-task-management',
@@ -18,16 +19,27 @@ export class TaskManagementComponent implements OnInit {
 
   taskStates: TaskState[];
 
-  drop(event: CdkDragDrop<TaskState[]>, taskStateID: number) {
+  drop(event: CdkDragDrop<Task[]>, taskStateID: number) {
+    
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
+      // const id = event.container.id.substr(event.container.id.length - 1);
+      const aux = event.container.id.split('-');
+      const id = aux[aux.length - 1];
+      
+      const updatedTask = event.previousContainer.data[event.previousIndex];
+      
+      updatedTask.taskStateID = this.taskStates[Number.parseInt(id, 10)].taskStateID;
+      this.service.updateTask(updatedTask);
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
-      }
+      
+      
     }
+  }
 
     public async fetchData() {
       this.taskStates = await this.service.getTaskStates();
@@ -37,6 +49,7 @@ export class TaskManagementComponent implements OnInit {
       // console.log(event);
       // console.log(taskId, 'taskId');
       // console.log(stateId, 'stateID');
+      // console.log(taskStateID, 'stateID');
     }
 
     addTaskState() {
